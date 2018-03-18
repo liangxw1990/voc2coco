@@ -33,13 +33,14 @@ def get_and_check(root, name, length):
         vars = vars[0]
     return vars
 
-
+_file_id = 0
 def get_filename_as_int(filename):
     try:
         filename = os.path.splitext(filename)[0]
         return int(filename)
     except:
-        raise NotImplementedError('Filename %s is supposed to be an integer.'%(filename))
+        _file_id += 1
+        return _file_id
 
 
 def convert(xml_list, xml_dir, json_file):
